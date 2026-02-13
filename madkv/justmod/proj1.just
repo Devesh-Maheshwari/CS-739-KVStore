@@ -20,38 +20,31 @@ clean:
 
 # run your KV store server
 server listen="0.0.0.0:3777":
-    just p1::build
     ./kvstore/build/kv_server "{{listen}}"
     
 
 # run you KV store client in stdin/out interface mode
 client server="127.0.0.1:3777":
-    just p1::build
     ./kvstore/build/kv_client "{{server}}"
 
 # run your KV store testcase 1 client
 test1 server="127.0.0.1:3777":
-    just p1::build
     ./kvstore/build/kv_client "{{server}}" < kvstore/tests/test1.txt
 
 # run your KV store testcase 2 client
 test2 server="127.0.0.1:3777":
-    just p1::build
     ./kvstore/build/kv_client "{{server}}" < kvstore/tests/test2.txt
 
 # run your KV store testcase 3 client
 test3 server="127.0.0.1:3777":
-    just p1::build
     bash kvstore/tests/test3.sh "{{server}}"
 
 # run your KV store testcase 4 client(s)
 test4 server="127.0.0.1:3777":
-    just p1::build
     bash kvstore/tests/test4.sh "{{server}}"
 
 # run your KV store testcase 5 client(s)
 test5 server="127.0.0.1:3777":
-    just p1::build
     bash kvstore/tests/test5.sh "{{server}}"
 
 # kill all processes of your KV store system
