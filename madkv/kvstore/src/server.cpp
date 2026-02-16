@@ -1,5 +1,6 @@
 #include <grpcpp/grpcpp.h>
 #include <map>
+#include <mutex>
 #include <string>
 #include <iostream>
 #include "kvstore.grpc.pb.h"
@@ -23,9 +24,11 @@ using kvstore::DeleteResponse;
 class KvStoreService final : public KvStore::Service {
 private:
     std::map<std::string, std::string> store_;
+    std::mutex mu_;
 
 public:
     Status Put(ServerContext* ctx, const PutRequest* req, PutResponse* res) override {
+        std::lock_guard<std::mutex> lock(mu_);
         auto it = store_.find(req->key());
         bool found = (it != store_.end());
         store_[req->key()] = req->value();
@@ -34,6 +37,7 @@ public:
     }
 
     Status Swap(ServerContext* ctx, const SwapRequest* req, SwapResponse* res) override {
+        std::lock_guard<std::mutex> lock(mu_);
         auto it = store_.find(req->key());
         if (it != store_.end()) {
             res->set_found(true);
@@ -47,6 +51,7 @@ public:
     }
 
     Status Get(ServerContext* ctx, const GetRequest* req, GetResponse* res) override {
+        std::lock_guard<std::mutex> lock(mu_);
         auto it = store_.find(req->key());
         if (it != store_.end()) {
             res->set_found(true);
@@ -58,6 +63,7 @@ public:
     }
 
     Status Scan(ServerContext* ctx, const ScanRequest* req, ScanResponse* res) override {
+        std::lock_guard<std::mutex> lock(mu_);
         auto start = store_.lower_bound(req->key_start());
         auto end = store_.upper_bound(req->key_end());
 
@@ -70,6 +76,7 @@ public:
     }
 
     Status Delete(ServerContext* ctx, const DeleteRequest* req, DeleteResponse* res) override {
+        std::lock_guard<std::mutex> lock(mu_);
         auto it = store_.find(req->key());
         if (it != store_.end()) {
             store_.erase(it);
