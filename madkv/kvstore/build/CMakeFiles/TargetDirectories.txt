@@ -1,0 +1,4 @@
+/users/devesh/CS-739-KVStore/madkv/kvstore/build/CMakeFiles/kv_server.dir
+/users/devesh/CS-739-KVStore/madkv/kvstore/build/CMakeFiles/kv_client.dir
+/users/devesh/CS-739-KVStore/madkv/kvstore/build/CMakeFiles/edit_cache.dir
+/users/devesh/CS-739-KVStore/madkv/kvstore/build/CMakeFiles/rebuild_cache.dir
