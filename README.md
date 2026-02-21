@@ -67,15 +67,15 @@ Single-client fuzz passed as expected — just sequential correctness with rando
 
 <u>Single-client throughput/latency across workloads:</u>
 
-![single-cli](plots-p1/ycsb-single-cli.png)
+![single-cli](madkv/report/plots-p1/ycsb-single-cli.png)
 
 <u>Agg. throughput trend vs. number of clients:</u>
 
-![tput-trend](plots-p1/ycsb-tput-trend.png)
+![tput-trend](madkv/report/plots-p1/ycsb-tput-trend.png)
 
 <u>Avg. latency trend vs. number of clients:</u>
 
-![lats-trend](plots-p1/ycsb-lats-trend.png)
+![lats-trend](madkv/report/plots-p1/ycsb-lats-trend.png)
 
 ### Comments
 
