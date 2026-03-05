@@ -139,6 +139,7 @@ kv_server: CMakeFiles/kv_server.dir/generated/kvstore.grpc.pb.cc.o
 kv_server: CMakeFiles/kv_server.dir/build.make
 kv_server: /usr/lib/x86_64-linux-gnu/libgrpc++.so.1.51.1
 kv_server: /usr/lib/x86_64-linux-gnu/libprotobuf.so
+kv_server: /usr/lib/x86_64-linux-gnu/libsqlite3.so
 kv_server: /usr/lib/x86_64-linux-gnu/libgrpc.so.29.0.0
 kv_server: /usr/lib/x86_64-linux-gnu/libz.so
 kv_server: /usr/lib/x86_64-linux-gnu/libcares.so.2.12.0

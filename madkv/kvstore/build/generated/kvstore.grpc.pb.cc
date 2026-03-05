@@ -250,5 +250,108 @@ KvStore::Service::~Service() {
 }
 
 
+static const char* Manager_method_names[] = {
+  "/kvstore.Manager/RegisterServer",
+  "/kvstore.Manager/GetClusterInfo",
+};
+
+std::unique_ptr< Manager::Stub> Manager::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  (void)options;
+  std::unique_ptr< Manager::Stub> stub(new Manager::Stub(channel, options));
+  return stub;
+}
+
+Manager::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_RegisterServer_(Manager_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetClusterInfo_(Manager_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  {}
+
+::grpc::Status Manager::Stub::RegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::kvstore::RegisterResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::kvstore::RegisterRequest, ::kvstore::RegisterResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_RegisterServer_, context, request, response);
+}
+
+void Manager::Stub::async::RegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest* request, ::kvstore::RegisterResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::kvstore::RegisterRequest, ::kvstore::RegisterResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RegisterServer_, context, request, response, std::move(f));
+}
+
+void Manager::Stub::async::RegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest* request, ::kvstore::RegisterResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RegisterServer_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::kvstore::RegisterResponse>* Manager::Stub::PrepareAsyncRegisterServerRaw(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::kvstore::RegisterResponse, ::kvstore::RegisterRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_RegisterServer_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::kvstore::RegisterResponse>* Manager::Stub::AsyncRegisterServerRaw(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncRegisterServerRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Manager::Stub::GetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::kvstore::ClusterInfoResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::kvstore::ClusterInfoRequest, ::kvstore::ClusterInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetClusterInfo_, context, request, response);
+}
+
+void Manager::Stub::async::GetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest* request, ::kvstore::ClusterInfoResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::kvstore::ClusterInfoRequest, ::kvstore::ClusterInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetClusterInfo_, context, request, response, std::move(f));
+}
+
+void Manager::Stub::async::GetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest* request, ::kvstore::ClusterInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetClusterInfo_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::kvstore::ClusterInfoResponse>* Manager::Stub::PrepareAsyncGetClusterInfoRaw(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::kvstore::ClusterInfoResponse, ::kvstore::ClusterInfoRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetClusterInfo_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::kvstore::ClusterInfoResponse>* Manager::Stub::AsyncGetClusterInfoRaw(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetClusterInfoRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+Manager::Service::Service() {
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Manager_method_names[0],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Manager::Service, ::kvstore::RegisterRequest, ::kvstore::RegisterResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Manager::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::kvstore::RegisterRequest* req,
+             ::kvstore::RegisterResponse* resp) {
+               return service->RegisterServer(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Manager_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Manager::Service, ::kvstore::ClusterInfoRequest, ::kvstore::ClusterInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Manager::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::kvstore::ClusterInfoRequest* req,
+             ::kvstore::ClusterInfoResponse* resp) {
+               return service->GetClusterInfo(ctx, req, resp);
+             }, this)));
+}
+
+Manager::Service::~Service() {
+}
+
+::grpc::Status Manager::Service::RegisterServer(::grpc::ServerContext* context, const ::kvstore::RegisterRequest* request, ::kvstore::RegisterResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Manager::Service::GetClusterInfo(::grpc::ServerContext* context, const ::kvstore::ClusterInfoRequest* request, ::kvstore::ClusterInfoResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+
 }  // namespace kvstore
 

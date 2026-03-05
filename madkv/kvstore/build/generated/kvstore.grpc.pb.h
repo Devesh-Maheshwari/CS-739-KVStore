@@ -862,6 +862,370 @@ class KvStore final {
   typedef WithStreamedUnaryMethod_Put<WithStreamedUnaryMethod_Swap<WithStreamedUnaryMethod_Get<WithStreamedUnaryMethod_Scan<WithStreamedUnaryMethod_Delete<Service > > > > > StreamedService;
 };
 
+class Manager final {
+ public:
+  static constexpr char const* service_full_name() {
+    return "kvstore.Manager";
+  }
+  class StubInterface {
+   public:
+    virtual ~StubInterface() {}
+    virtual ::grpc::Status RegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::kvstore::RegisterResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::RegisterResponse>> AsyncRegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::RegisterResponse>>(AsyncRegisterServerRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::RegisterResponse>> PrepareAsyncRegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::RegisterResponse>>(PrepareAsyncRegisterServerRaw(context, request, cq));
+    }
+    virtual ::grpc::Status GetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::kvstore::ClusterInfoResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::ClusterInfoResponse>> AsyncGetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::ClusterInfoResponse>>(AsyncGetClusterInfoRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::ClusterInfoResponse>> PrepareAsyncGetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::ClusterInfoResponse>>(PrepareAsyncGetClusterInfoRaw(context, request, cq));
+    }
+    class async_interface {
+     public:
+      virtual ~async_interface() {}
+      virtual void RegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest* request, ::kvstore::RegisterResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void RegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest* request, ::kvstore::RegisterResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest* request, ::kvstore::ClusterInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest* request, ::kvstore::ClusterInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+    };
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::RegisterResponse>* AsyncRegisterServerRaw(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::RegisterResponse>* PrepareAsyncRegisterServerRaw(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::ClusterInfoResponse>* AsyncGetClusterInfoRaw(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::kvstore::ClusterInfoResponse>* PrepareAsyncGetClusterInfoRaw(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
+  };
+  class Stub final : public StubInterface {
+   public:
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+    ::grpc::Status RegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::kvstore::RegisterResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::kvstore::RegisterResponse>> AsyncRegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::kvstore::RegisterResponse>>(AsyncRegisterServerRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::kvstore::RegisterResponse>> PrepareAsyncRegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::kvstore::RegisterResponse>>(PrepareAsyncRegisterServerRaw(context, request, cq));
+    }
+    ::grpc::Status GetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::kvstore::ClusterInfoResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::kvstore::ClusterInfoResponse>> AsyncGetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::kvstore::ClusterInfoResponse>>(AsyncGetClusterInfoRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::kvstore::ClusterInfoResponse>> PrepareAsyncGetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::kvstore::ClusterInfoResponse>>(PrepareAsyncGetClusterInfoRaw(context, request, cq));
+    }
+    class async final :
+      public StubInterface::async_interface {
+     public:
+      void RegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest* request, ::kvstore::RegisterResponse* response, std::function<void(::grpc::Status)>) override;
+      void RegisterServer(::grpc::ClientContext* context, const ::kvstore::RegisterRequest* request, ::kvstore::RegisterResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest* request, ::kvstore::ClusterInfoResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetClusterInfo(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest* request, ::kvstore::ClusterInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+     private:
+      friend class Stub;
+      explicit async(Stub* stub): stub_(stub) { }
+      Stub* stub() { return stub_; }
+      Stub* stub_;
+    };
+    class async* async() override { return &async_stub_; }
+
+   private:
+    std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    class async async_stub_{this};
+    ::grpc::ClientAsyncResponseReader< ::kvstore::RegisterResponse>* AsyncRegisterServerRaw(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::kvstore::RegisterResponse>* PrepareAsyncRegisterServerRaw(::grpc::ClientContext* context, const ::kvstore::RegisterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::kvstore::ClusterInfoResponse>* AsyncGetClusterInfoRaw(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::kvstore::ClusterInfoResponse>* PrepareAsyncGetClusterInfoRaw(::grpc::ClientContext* context, const ::kvstore::ClusterInfoRequest& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_RegisterServer_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetClusterInfo_;
+  };
+  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+
+  class Service : public ::grpc::Service {
+   public:
+    Service();
+    virtual ~Service();
+    virtual ::grpc::Status RegisterServer(::grpc::ServerContext* context, const ::kvstore::RegisterRequest* request, ::kvstore::RegisterResponse* response);
+    virtual ::grpc::Status GetClusterInfo(::grpc::ServerContext* context, const ::kvstore::ClusterInfoRequest* request, ::kvstore::ClusterInfoResponse* response);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_RegisterServer : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_RegisterServer() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_RegisterServer() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterServer(::grpc::ServerContext* /*context*/, const ::kvstore::RegisterRequest* /*request*/, ::kvstore::RegisterResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestRegisterServer(::grpc::ServerContext* context, ::kvstore::RegisterRequest* request, ::grpc::ServerAsyncResponseWriter< ::kvstore::RegisterResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_GetClusterInfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_GetClusterInfo() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_GetClusterInfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetClusterInfo(::grpc::ServerContext* /*context*/, const ::kvstore::ClusterInfoRequest* /*request*/, ::kvstore::ClusterInfoResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetClusterInfo(::grpc::ServerContext* context, ::kvstore::ClusterInfoRequest* request, ::grpc::ServerAsyncResponseWriter< ::kvstore::ClusterInfoResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_RegisterServer<WithAsyncMethod_GetClusterInfo<Service > > AsyncService;
+  template <class BaseClass>
+  class WithCallbackMethod_RegisterServer : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_RegisterServer() {
+      ::grpc::Service::MarkMethodCallback(0,
+          new ::grpc::internal::CallbackUnaryHandler< ::kvstore::RegisterRequest, ::kvstore::RegisterResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::kvstore::RegisterRequest* request, ::kvstore::RegisterResponse* response) { return this->RegisterServer(context, request, response); }));}
+    void SetMessageAllocatorFor_RegisterServer(
+        ::grpc::MessageAllocator< ::kvstore::RegisterRequest, ::kvstore::RegisterResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::kvstore::RegisterRequest, ::kvstore::RegisterResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_RegisterServer() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterServer(::grpc::ServerContext* /*context*/, const ::kvstore::RegisterRequest* /*request*/, ::kvstore::RegisterResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* RegisterServer(
+      ::grpc::CallbackServerContext* /*context*/, const ::kvstore::RegisterRequest* /*request*/, ::kvstore::RegisterResponse* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_GetClusterInfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_GetClusterInfo() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::kvstore::ClusterInfoRequest, ::kvstore::ClusterInfoResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::kvstore::ClusterInfoRequest* request, ::kvstore::ClusterInfoResponse* response) { return this->GetClusterInfo(context, request, response); }));}
+    void SetMessageAllocatorFor_GetClusterInfo(
+        ::grpc::MessageAllocator< ::kvstore::ClusterInfoRequest, ::kvstore::ClusterInfoResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::kvstore::ClusterInfoRequest, ::kvstore::ClusterInfoResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_GetClusterInfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetClusterInfo(::grpc::ServerContext* /*context*/, const ::kvstore::ClusterInfoRequest* /*request*/, ::kvstore::ClusterInfoResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* GetClusterInfo(
+      ::grpc::CallbackServerContext* /*context*/, const ::kvstore::ClusterInfoRequest* /*request*/, ::kvstore::ClusterInfoResponse* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_RegisterServer<WithCallbackMethod_GetClusterInfo<Service > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
+  template <class BaseClass>
+  class WithGenericMethod_RegisterServer : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_RegisterServer() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_RegisterServer() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterServer(::grpc::ServerContext* /*context*/, const ::kvstore::RegisterRequest* /*request*/, ::kvstore::RegisterResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_GetClusterInfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_GetClusterInfo() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_GetClusterInfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetClusterInfo(::grpc::ServerContext* /*context*/, const ::kvstore::ClusterInfoRequest* /*request*/, ::kvstore::ClusterInfoResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_RegisterServer : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_RegisterServer() {
+      ::grpc::Service::MarkMethodRaw(0);
+    }
+    ~WithRawMethod_RegisterServer() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterServer(::grpc::ServerContext* /*context*/, const ::kvstore::RegisterRequest* /*request*/, ::kvstore::RegisterResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestRegisterServer(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_GetClusterInfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_GetClusterInfo() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_GetClusterInfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetClusterInfo(::grpc::ServerContext* /*context*/, const ::kvstore::ClusterInfoRequest* /*request*/, ::kvstore::ClusterInfoResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetClusterInfo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_RegisterServer : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_RegisterServer() {
+      ::grpc::Service::MarkMethodRawCallback(0,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RegisterServer(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_RegisterServer() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterServer(::grpc::ServerContext* /*context*/, const ::kvstore::RegisterRequest* /*request*/, ::kvstore::RegisterResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* RegisterServer(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_GetClusterInfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_GetClusterInfo() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetClusterInfo(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_GetClusterInfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetClusterInfo(::grpc::ServerContext* /*context*/, const ::kvstore::ClusterInfoRequest* /*request*/, ::kvstore::ClusterInfoResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* GetClusterInfo(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_RegisterServer : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_RegisterServer() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::kvstore::RegisterRequest, ::kvstore::RegisterResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::kvstore::RegisterRequest, ::kvstore::RegisterResponse>* streamer) {
+                       return this->StreamedRegisterServer(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_RegisterServer() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status RegisterServer(::grpc::ServerContext* /*context*/, const ::kvstore::RegisterRequest* /*request*/, ::kvstore::RegisterResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedRegisterServer(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::kvstore::RegisterRequest,::kvstore::RegisterResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GetClusterInfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_GetClusterInfo() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::kvstore::ClusterInfoRequest, ::kvstore::ClusterInfoResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::kvstore::ClusterInfoRequest, ::kvstore::ClusterInfoResponse>* streamer) {
+                       return this->StreamedGetClusterInfo(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_GetClusterInfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetClusterInfo(::grpc::ServerContext* /*context*/, const ::kvstore::ClusterInfoRequest* /*request*/, ::kvstore::ClusterInfoResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetClusterInfo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::kvstore::ClusterInfoRequest,::kvstore::ClusterInfoResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_RegisterServer<WithStreamedUnaryMethod_GetClusterInfo<Service > > StreamedUnaryService;
+  typedef Service SplitStreamedService;
+  typedef WithStreamedUnaryMethod_RegisterServer<WithStreamedUnaryMethod_GetClusterInfo<Service > > StreamedService;
+};
+
 }  // namespace kvstore
 
 

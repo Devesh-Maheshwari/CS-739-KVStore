@@ -142,6 +142,19 @@ kv_client/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_client.dir/build.make CMakeFiles/kv_client.dir/build
 .PHONY : kv_client/fast
 
+#=============================================================================
+# Target rules for targets named kv_manager
+
+# Build rule for target.
+kv_manager: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kv_manager
+.PHONY : kv_manager
+
+# fast build rule for target.
+kv_manager/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_manager.dir/build.make CMakeFiles/kv_manager.dir/build
+.PHONY : kv_manager/fast
+
 generated/kvstore.grpc.pb.o: generated/kvstore.grpc.pb.cc.o
 .PHONY : generated/kvstore.grpc.pb.o
 
@@ -149,6 +162,7 @@ generated/kvstore.grpc.pb.o: generated/kvstore.grpc.pb.cc.o
 generated/kvstore.grpc.pb.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_server.dir/build.make CMakeFiles/kv_server.dir/generated/kvstore.grpc.pb.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_client.dir/build.make CMakeFiles/kv_client.dir/generated/kvstore.grpc.pb.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_manager.dir/build.make CMakeFiles/kv_manager.dir/generated/kvstore.grpc.pb.cc.o
 .PHONY : generated/kvstore.grpc.pb.cc.o
 
 generated/kvstore.grpc.pb.i: generated/kvstore.grpc.pb.cc.i
@@ -158,6 +172,7 @@ generated/kvstore.grpc.pb.i: generated/kvstore.grpc.pb.cc.i
 generated/kvstore.grpc.pb.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_server.dir/build.make CMakeFiles/kv_server.dir/generated/kvstore.grpc.pb.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_client.dir/build.make CMakeFiles/kv_client.dir/generated/kvstore.grpc.pb.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_manager.dir/build.make CMakeFiles/kv_manager.dir/generated/kvstore.grpc.pb.cc.i
 .PHONY : generated/kvstore.grpc.pb.cc.i
 
 generated/kvstore.grpc.pb.s: generated/kvstore.grpc.pb.cc.s
@@ -167,6 +182,7 @@ generated/kvstore.grpc.pb.s: generated/kvstore.grpc.pb.cc.s
 generated/kvstore.grpc.pb.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_server.dir/build.make CMakeFiles/kv_server.dir/generated/kvstore.grpc.pb.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_client.dir/build.make CMakeFiles/kv_client.dir/generated/kvstore.grpc.pb.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_manager.dir/build.make CMakeFiles/kv_manager.dir/generated/kvstore.grpc.pb.cc.s
 .PHONY : generated/kvstore.grpc.pb.cc.s
 
 generated/kvstore.pb.o: generated/kvstore.pb.cc.o
@@ -176,6 +192,7 @@ generated/kvstore.pb.o: generated/kvstore.pb.cc.o
 generated/kvstore.pb.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_server.dir/build.make CMakeFiles/kv_server.dir/generated/kvstore.pb.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_client.dir/build.make CMakeFiles/kv_client.dir/generated/kvstore.pb.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_manager.dir/build.make CMakeFiles/kv_manager.dir/generated/kvstore.pb.cc.o
 .PHONY : generated/kvstore.pb.cc.o
 
 generated/kvstore.pb.i: generated/kvstore.pb.cc.i
@@ -185,6 +202,7 @@ generated/kvstore.pb.i: generated/kvstore.pb.cc.i
 generated/kvstore.pb.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_server.dir/build.make CMakeFiles/kv_server.dir/generated/kvstore.pb.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_client.dir/build.make CMakeFiles/kv_client.dir/generated/kvstore.pb.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_manager.dir/build.make CMakeFiles/kv_manager.dir/generated/kvstore.pb.cc.i
 .PHONY : generated/kvstore.pb.cc.i
 
 generated/kvstore.pb.s: generated/kvstore.pb.cc.s
@@ -194,6 +212,7 @@ generated/kvstore.pb.s: generated/kvstore.pb.cc.s
 generated/kvstore.pb.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_server.dir/build.make CMakeFiles/kv_server.dir/generated/kvstore.pb.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_client.dir/build.make CMakeFiles/kv_client.dir/generated/kvstore.pb.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_manager.dir/build.make CMakeFiles/kv_manager.dir/generated/kvstore.pb.cc.s
 .PHONY : generated/kvstore.pb.cc.s
 
 src/client.o: src/client.cpp.o
@@ -219,6 +238,30 @@ src/client.s: src/client.cpp.s
 src/client.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_client.dir/build.make CMakeFiles/kv_client.dir/src/client.cpp.s
 .PHONY : src/client.cpp.s
+
+src/manager.o: src/manager.cpp.o
+.PHONY : src/manager.o
+
+# target to build an object file
+src/manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_manager.dir/build.make CMakeFiles/kv_manager.dir/src/manager.cpp.o
+.PHONY : src/manager.cpp.o
+
+src/manager.i: src/manager.cpp.i
+.PHONY : src/manager.i
+
+# target to preprocess a source file
+src/manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_manager.dir/build.make CMakeFiles/kv_manager.dir/src/manager.cpp.i
+.PHONY : src/manager.cpp.i
+
+src/manager.s: src/manager.cpp.s
+.PHONY : src/manager.s
+
+# target to generate assembly for a file
+src/manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kv_manager.dir/build.make CMakeFiles/kv_manager.dir/src/manager.cpp.s
+.PHONY : src/manager.cpp.s
 
 src/server.o: src/server.cpp.o
 .PHONY : src/server.o
@@ -253,6 +296,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... kv_client"
+	@echo "... kv_manager"
 	@echo "... kv_server"
 	@echo "... generated/kvstore.grpc.pb.o"
 	@echo "... generated/kvstore.grpc.pb.i"
@@ -263,6 +307,9 @@ help:
 	@echo "... src/client.o"
 	@echo "... src/client.i"
 	@echo "... src/client.s"
+	@echo "... src/manager.o"
+	@echo "... src/manager.i"
+	@echo "... src/manager.s"
 	@echo "... src/server.o"
 	@echo "... src/server.i"
 	@echo "... src/server.s"

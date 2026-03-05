@@ -59,3 +59,21 @@ target_link_libraries(kv_client
     protobuf::libprotobuf
     Threads::Threads
 )
+
+# Manager executable
+add_executable(kv_manager
+    src/manager.cpp
+    ${PROTO_SRCS}
+    ${GRPC_SRCS}
+)
+
+target_include_directories(kv_manager PRIVATE ${GENERATED_PROTOBUF_PATH})
+target_link_libraries(kv_manager
+    gRPC::grpc++
+    protobuf::libprotobuf
+    Threads::Threads
+)
+
+# SQLite3 for server WAL
+find_package(SQLite3 REQUIRED)
+target_link_libraries(kv_server SQLite::SQLite3)

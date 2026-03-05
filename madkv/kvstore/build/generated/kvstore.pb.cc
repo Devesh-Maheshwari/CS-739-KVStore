@@ -170,8 +170,75 @@ struct DeleteResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeleteResponseDefaultTypeInternal _DeleteResponse_default_instance_;
+PROTOBUF_CONSTEXPR RegisterRequest::RegisterRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.address_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.server_id_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RegisterRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RegisterRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RegisterRequestDefaultTypeInternal() {}
+  union {
+    RegisterRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RegisterRequestDefaultTypeInternal _RegisterRequest_default_instance_;
+PROTOBUF_CONSTEXPR RegisterResponse::RegisterResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.num_partitions_)*/0
+  , /*decltype(_impl_.partition_id_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RegisterResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RegisterResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RegisterResponseDefaultTypeInternal() {}
+  union {
+    RegisterResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RegisterResponseDefaultTypeInternal _RegisterResponse_default_instance_;
+PROTOBUF_CONSTEXPR ClusterInfoRequest::ClusterInfoRequest(
+    ::_pbi::ConstantInitialized) {}
+struct ClusterInfoRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ClusterInfoRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ClusterInfoRequestDefaultTypeInternal() {}
+  union {
+    ClusterInfoRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ClusterInfoRequestDefaultTypeInternal _ClusterInfoRequest_default_instance_;
+PROTOBUF_CONSTEXPR ClusterInfoResponse::ClusterInfoResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.servers_)*/{}
+  , /*decltype(_impl_.num_partitions_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ClusterInfoResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ClusterInfoResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ClusterInfoResponseDefaultTypeInternal() {}
+  union {
+    ClusterInfoResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ClusterInfoResponseDefaultTypeInternal _ClusterInfoResponse_default_instance_;
+PROTOBUF_CONSTEXPR ServerInfo::ServerInfo(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.address_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.server_id_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ServerInfoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ServerInfoDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ServerInfoDefaultTypeInternal() {}
+  union {
+    ServerInfo _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ServerInfoDefaultTypeInternal _ServerInfo_default_instance_;
 }  // namespace kvstore
-static ::_pb::Metadata file_level_metadata_kvstore_2eproto[11];
+static ::_pb::Metadata file_level_metadata_kvstore_2eproto[16];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_kvstore_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_kvstore_2eproto = nullptr;
 
@@ -259,6 +326,44 @@ const uint32_t TableStruct_kvstore_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::kvstore::DeleteResponse, _impl_.found_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::kvstore::RegisterRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::kvstore::RegisterRequest, _impl_.server_id_),
+  PROTOBUF_FIELD_OFFSET(::kvstore::RegisterRequest, _impl_.address_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::kvstore::RegisterResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::kvstore::RegisterResponse, _impl_.num_partitions_),
+  PROTOBUF_FIELD_OFFSET(::kvstore::RegisterResponse, _impl_.partition_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::kvstore::ClusterInfoRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::kvstore::ClusterInfoResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::kvstore::ClusterInfoResponse, _impl_.num_partitions_),
+  PROTOBUF_FIELD_OFFSET(::kvstore::ClusterInfoResponse, _impl_.servers_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::kvstore::ServerInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::kvstore::ServerInfo, _impl_.server_id_),
+  PROTOBUF_FIELD_OFFSET(::kvstore::ServerInfo, _impl_.address_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::kvstore::PutRequest)},
@@ -272,6 +377,11 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 61, -1, -1, sizeof(::kvstore::KvEntry)},
   { 69, -1, -1, sizeof(::kvstore::DeleteRequest)},
   { 76, -1, -1, sizeof(::kvstore::DeleteResponse)},
+  { 83, -1, -1, sizeof(::kvstore::RegisterRequest)},
+  { 91, -1, -1, sizeof(::kvstore::RegisterResponse)},
+  { 99, -1, -1, sizeof(::kvstore::ClusterInfoRequest)},
+  { 105, -1, -1, sizeof(::kvstore::ClusterInfoResponse)},
+  { 113, -1, -1, sizeof(::kvstore::ServerInfo)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -286,6 +396,11 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::kvstore::_KvEntry_default_instance_._instance,
   &::kvstore::_DeleteRequest_default_instance_._instance,
   &::kvstore::_DeleteResponse_default_instance_._instance,
+  &::kvstore::_RegisterRequest_default_instance_._instance,
+  &::kvstore::_RegisterResponse_default_instance_._instance,
+  &::kvstore::_ClusterInfoRequest_default_instance_._instance,
+  &::kvstore::_ClusterInfoResponse_default_instance_._instance,
+  &::kvstore::_ServerInfo_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_kvstore_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -300,20 +415,31 @@ const char descriptor_table_protodef_kvstore_2eproto[] PROTOBUF_SECTION_VARIABLE
   "Response\022!\n\007entries\030\001 \003(\0132\020.kvstore.KvEn"
   "try\"%\n\007KvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001"
   "(\t\"\034\n\rDeleteRequest\022\013\n\003key\030\001 \001(\t\"\037\n\016Dele"
-  "teResponse\022\r\n\005found\030\001 \001(\0102\222\002\n\007KvStore\0220\n"
-  "\003Put\022\023.kvstore.PutRequest\032\024.kvstore.PutR"
-  "esponse\0223\n\004Swap\022\024.kvstore.SwapRequest\032\025."
-  "kvstore.SwapResponse\0220\n\003Get\022\023.kvstore.Ge"
-  "tRequest\032\024.kvstore.GetResponse\0223\n\004Scan\022\024"
-  ".kvstore.ScanRequest\032\025.kvstore.ScanRespo"
-  "nse\0229\n\006Delete\022\026.kvstore.DeleteRequest\032\027."
-  "kvstore.DeleteResponseb\006proto3"
+  "teResponse\022\r\n\005found\030\001 \001(\010\"5\n\017RegisterReq"
+  "uest\022\021\n\tserver_id\030\001 \001(\005\022\017\n\007address\030\002 \001(\t"
+  "\"@\n\020RegisterResponse\022\026\n\016num_partitions\030\001"
+  " \001(\005\022\024\n\014partition_id\030\002 \001(\005\"\024\n\022ClusterInf"
+  "oRequest\"S\n\023ClusterInfoResponse\022\026\n\016num_p"
+  "artitions\030\001 \001(\005\022$\n\007servers\030\002 \003(\0132\023.kvsto"
+  "re.ServerInfo\"0\n\nServerInfo\022\021\n\tserver_id"
+  "\030\001 \001(\005\022\017\n\007address\030\002 \001(\t2\222\002\n\007KvStore\0220\n\003P"
+  "ut\022\023.kvstore.PutRequest\032\024.kvstore.PutRes"
+  "ponse\0223\n\004Swap\022\024.kvstore.SwapRequest\032\025.kv"
+  "store.SwapResponse\0220\n\003Get\022\023.kvstore.GetR"
+  "equest\032\024.kvstore.GetResponse\0223\n\004Scan\022\024.k"
+  "vstore.ScanRequest\032\025.kvstore.ScanRespons"
+  "e\0229\n\006Delete\022\026.kvstore.DeleteRequest\032\027.kv"
+  "store.DeleteResponse2\235\001\n\007Manager\022E\n\016Regi"
+  "sterServer\022\030.kvstore.RegisterRequest\032\031.k"
+  "vstore.RegisterResponse\022K\n\016GetClusterInf"
+  "o\022\033.kvstore.ClusterInfoRequest\032\034.kvstore"
+  ".ClusterInfoResponseb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_kvstore_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_kvstore_2eproto = {
-    false, false, 750, descriptor_table_protodef_kvstore_2eproto,
+    false, false, 1188, descriptor_table_protodef_kvstore_2eproto,
     "kvstore.proto",
-    &descriptor_table_kvstore_2eproto_once, nullptr, 0, 11,
+    &descriptor_table_kvstore_2eproto_once, nullptr, 0, 16,
     schemas, file_default_instances, TableStruct_kvstore_2eproto::offsets,
     file_level_metadata_kvstore_2eproto, file_level_enum_descriptors_kvstore_2eproto,
     file_level_service_descriptors_kvstore_2eproto,
@@ -2745,6 +2871,929 @@ void DeleteResponse::InternalSwap(DeleteResponse* other) {
       file_level_metadata_kvstore_2eproto[10]);
 }
 
+// ===================================================================
+
+class RegisterRequest::_Internal {
+ public:
+};
+
+RegisterRequest::RegisterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:kvstore.RegisterRequest)
+}
+RegisterRequest::RegisterRequest(const RegisterRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RegisterRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.address_){}
+    , decltype(_impl_.server_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.address_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.address_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_address().empty()) {
+    _this->_impl_.address_.Set(from._internal_address(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.server_id_ = from._impl_.server_id_;
+  // @@protoc_insertion_point(copy_constructor:kvstore.RegisterRequest)
+}
+
+inline void RegisterRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.address_){}
+    , decltype(_impl_.server_id_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.address_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.address_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+RegisterRequest::~RegisterRequest() {
+  // @@protoc_insertion_point(destructor:kvstore.RegisterRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void RegisterRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.address_.Destroy();
+}
+
+void RegisterRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void RegisterRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:kvstore.RegisterRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.address_.ClearToEmpty();
+  _impl_.server_id_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RegisterRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 server_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.server_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string address = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_address();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "kvstore.RegisterRequest.address"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* RegisterRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:kvstore.RegisterRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 server_id = 1;
+  if (this->_internal_server_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_server_id(), target);
+  }
+
+  // string address = 2;
+  if (!this->_internal_address().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_address().data(), static_cast<int>(this->_internal_address().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "kvstore.RegisterRequest.address");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_address(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:kvstore.RegisterRequest)
+  return target;
+}
+
+size_t RegisterRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:kvstore.RegisterRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string address = 2;
+  if (!this->_internal_address().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_address());
+  }
+
+  // int32 server_id = 1;
+  if (this->_internal_server_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_server_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RegisterRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    RegisterRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RegisterRequest::GetClassData() const { return &_class_data_; }
+
+
+void RegisterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RegisterRequest*>(&to_msg);
+  auto& from = static_cast<const RegisterRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:kvstore.RegisterRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_address().empty()) {
+    _this->_internal_set_address(from._internal_address());
+  }
+  if (from._internal_server_id() != 0) {
+    _this->_internal_set_server_id(from._internal_server_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void RegisterRequest::CopyFrom(const RegisterRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:kvstore.RegisterRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RegisterRequest::IsInitialized() const {
+  return true;
+}
+
+void RegisterRequest::InternalSwap(RegisterRequest* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.address_, lhs_arena,
+      &other->_impl_.address_, rhs_arena
+  );
+  swap(_impl_.server_id_, other->_impl_.server_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RegisterRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_kvstore_2eproto_getter, &descriptor_table_kvstore_2eproto_once,
+      file_level_metadata_kvstore_2eproto[11]);
+}
+
+// ===================================================================
+
+class RegisterResponse::_Internal {
+ public:
+};
+
+RegisterResponse::RegisterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:kvstore.RegisterResponse)
+}
+RegisterResponse::RegisterResponse(const RegisterResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RegisterResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.num_partitions_){}
+    , decltype(_impl_.partition_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.num_partitions_, &from._impl_.num_partitions_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.partition_id_) -
+    reinterpret_cast<char*>(&_impl_.num_partitions_)) + sizeof(_impl_.partition_id_));
+  // @@protoc_insertion_point(copy_constructor:kvstore.RegisterResponse)
+}
+
+inline void RegisterResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.num_partitions_){0}
+    , decltype(_impl_.partition_id_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+RegisterResponse::~RegisterResponse() {
+  // @@protoc_insertion_point(destructor:kvstore.RegisterResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void RegisterResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void RegisterResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void RegisterResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:kvstore.RegisterResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.num_partitions_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.partition_id_) -
+      reinterpret_cast<char*>(&_impl_.num_partitions_)) + sizeof(_impl_.partition_id_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RegisterResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 num_partitions = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.num_partitions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 partition_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.partition_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* RegisterResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:kvstore.RegisterResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 num_partitions = 1;
+  if (this->_internal_num_partitions() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_num_partitions(), target);
+  }
+
+  // int32 partition_id = 2;
+  if (this->_internal_partition_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_partition_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:kvstore.RegisterResponse)
+  return target;
+}
+
+size_t RegisterResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:kvstore.RegisterResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 num_partitions = 1;
+  if (this->_internal_num_partitions() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_num_partitions());
+  }
+
+  // int32 partition_id = 2;
+  if (this->_internal_partition_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_partition_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RegisterResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    RegisterResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RegisterResponse::GetClassData() const { return &_class_data_; }
+
+
+void RegisterResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RegisterResponse*>(&to_msg);
+  auto& from = static_cast<const RegisterResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:kvstore.RegisterResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_num_partitions() != 0) {
+    _this->_internal_set_num_partitions(from._internal_num_partitions());
+  }
+  if (from._internal_partition_id() != 0) {
+    _this->_internal_set_partition_id(from._internal_partition_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void RegisterResponse::CopyFrom(const RegisterResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:kvstore.RegisterResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RegisterResponse::IsInitialized() const {
+  return true;
+}
+
+void RegisterResponse::InternalSwap(RegisterResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RegisterResponse, _impl_.partition_id_)
+      + sizeof(RegisterResponse::_impl_.partition_id_)
+      - PROTOBUF_FIELD_OFFSET(RegisterResponse, _impl_.num_partitions_)>(
+          reinterpret_cast<char*>(&_impl_.num_partitions_),
+          reinterpret_cast<char*>(&other->_impl_.num_partitions_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RegisterResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_kvstore_2eproto_getter, &descriptor_table_kvstore_2eproto_once,
+      file_level_metadata_kvstore_2eproto[12]);
+}
+
+// ===================================================================
+
+class ClusterInfoRequest::_Internal {
+ public:
+};
+
+ClusterInfoRequest::ClusterInfoRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:kvstore.ClusterInfoRequest)
+}
+ClusterInfoRequest::ClusterInfoRequest(const ClusterInfoRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  ClusterInfoRequest* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:kvstore.ClusterInfoRequest)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ClusterInfoRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ClusterInfoRequest::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata ClusterInfoRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_kvstore_2eproto_getter, &descriptor_table_kvstore_2eproto_once,
+      file_level_metadata_kvstore_2eproto[13]);
+}
+
+// ===================================================================
+
+class ClusterInfoResponse::_Internal {
+ public:
+};
+
+ClusterInfoResponse::ClusterInfoResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:kvstore.ClusterInfoResponse)
+}
+ClusterInfoResponse::ClusterInfoResponse(const ClusterInfoResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ClusterInfoResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.servers_){from._impl_.servers_}
+    , decltype(_impl_.num_partitions_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.num_partitions_ = from._impl_.num_partitions_;
+  // @@protoc_insertion_point(copy_constructor:kvstore.ClusterInfoResponse)
+}
+
+inline void ClusterInfoResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.servers_){arena}
+    , decltype(_impl_.num_partitions_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+ClusterInfoResponse::~ClusterInfoResponse() {
+  // @@protoc_insertion_point(destructor:kvstore.ClusterInfoResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ClusterInfoResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.servers_.~RepeatedPtrField();
+}
+
+void ClusterInfoResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ClusterInfoResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:kvstore.ClusterInfoResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.servers_.Clear();
+  _impl_.num_partitions_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ClusterInfoResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 num_partitions = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.num_partitions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .kvstore.ServerInfo servers = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_servers(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ClusterInfoResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:kvstore.ClusterInfoResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 num_partitions = 1;
+  if (this->_internal_num_partitions() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_num_partitions(), target);
+  }
+
+  // repeated .kvstore.ServerInfo servers = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_servers_size()); i < n; i++) {
+    const auto& repfield = this->_internal_servers(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:kvstore.ClusterInfoResponse)
+  return target;
+}
+
+size_t ClusterInfoResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:kvstore.ClusterInfoResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .kvstore.ServerInfo servers = 2;
+  total_size += 1UL * this->_internal_servers_size();
+  for (const auto& msg : this->_impl_.servers_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // int32 num_partitions = 1;
+  if (this->_internal_num_partitions() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_num_partitions());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ClusterInfoResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ClusterInfoResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ClusterInfoResponse::GetClassData() const { return &_class_data_; }
+
+
+void ClusterInfoResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ClusterInfoResponse*>(&to_msg);
+  auto& from = static_cast<const ClusterInfoResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:kvstore.ClusterInfoResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.servers_.MergeFrom(from._impl_.servers_);
+  if (from._internal_num_partitions() != 0) {
+    _this->_internal_set_num_partitions(from._internal_num_partitions());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ClusterInfoResponse::CopyFrom(const ClusterInfoResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:kvstore.ClusterInfoResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ClusterInfoResponse::IsInitialized() const {
+  return true;
+}
+
+void ClusterInfoResponse::InternalSwap(ClusterInfoResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.servers_.InternalSwap(&other->_impl_.servers_);
+  swap(_impl_.num_partitions_, other->_impl_.num_partitions_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ClusterInfoResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_kvstore_2eproto_getter, &descriptor_table_kvstore_2eproto_once,
+      file_level_metadata_kvstore_2eproto[14]);
+}
+
+// ===================================================================
+
+class ServerInfo::_Internal {
+ public:
+};
+
+ServerInfo::ServerInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:kvstore.ServerInfo)
+}
+ServerInfo::ServerInfo(const ServerInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ServerInfo* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.address_){}
+    , decltype(_impl_.server_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.address_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.address_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_address().empty()) {
+    _this->_impl_.address_.Set(from._internal_address(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.server_id_ = from._impl_.server_id_;
+  // @@protoc_insertion_point(copy_constructor:kvstore.ServerInfo)
+}
+
+inline void ServerInfo::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.address_){}
+    , decltype(_impl_.server_id_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.address_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.address_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ServerInfo::~ServerInfo() {
+  // @@protoc_insertion_point(destructor:kvstore.ServerInfo)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ServerInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.address_.Destroy();
+}
+
+void ServerInfo::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ServerInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:kvstore.ServerInfo)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.address_.ClearToEmpty();
+  _impl_.server_id_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ServerInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 server_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.server_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string address = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_address();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "kvstore.ServerInfo.address"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ServerInfo::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:kvstore.ServerInfo)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 server_id = 1;
+  if (this->_internal_server_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_server_id(), target);
+  }
+
+  // string address = 2;
+  if (!this->_internal_address().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_address().data(), static_cast<int>(this->_internal_address().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "kvstore.ServerInfo.address");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_address(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:kvstore.ServerInfo)
+  return target;
+}
+
+size_t ServerInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:kvstore.ServerInfo)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string address = 2;
+  if (!this->_internal_address().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_address());
+  }
+
+  // int32 server_id = 1;
+  if (this->_internal_server_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_server_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ServerInfo::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ServerInfo::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ServerInfo::GetClassData() const { return &_class_data_; }
+
+
+void ServerInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ServerInfo*>(&to_msg);
+  auto& from = static_cast<const ServerInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:kvstore.ServerInfo)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_address().empty()) {
+    _this->_internal_set_address(from._internal_address());
+  }
+  if (from._internal_server_id() != 0) {
+    _this->_internal_set_server_id(from._internal_server_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ServerInfo::CopyFrom(const ServerInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:kvstore.ServerInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ServerInfo::IsInitialized() const {
+  return true;
+}
+
+void ServerInfo::InternalSwap(ServerInfo* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.address_, lhs_arena,
+      &other->_impl_.address_, rhs_arena
+  );
+  swap(_impl_.server_id_, other->_impl_.server_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ServerInfo::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_kvstore_2eproto_getter, &descriptor_table_kvstore_2eproto_once,
+      file_level_metadata_kvstore_2eproto[15]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace kvstore
 PROTOBUF_NAMESPACE_OPEN
@@ -2791,6 +3840,26 @@ Arena::CreateMaybeMessage< ::kvstore::DeleteRequest >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::kvstore::DeleteResponse*
 Arena::CreateMaybeMessage< ::kvstore::DeleteResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::kvstore::DeleteResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::kvstore::RegisterRequest*
+Arena::CreateMaybeMessage< ::kvstore::RegisterRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::kvstore::RegisterRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::kvstore::RegisterResponse*
+Arena::CreateMaybeMessage< ::kvstore::RegisterResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::kvstore::RegisterResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::kvstore::ClusterInfoRequest*
+Arena::CreateMaybeMessage< ::kvstore::ClusterInfoRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::kvstore::ClusterInfoRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::kvstore::ClusterInfoResponse*
+Arena::CreateMaybeMessage< ::kvstore::ClusterInfoResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::kvstore::ClusterInfoResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::kvstore::ServerInfo*
+Arena::CreateMaybeMessage< ::kvstore::ServerInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::kvstore::ServerInfo >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -43,6 +43,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.28/Modules/FindPackageMessage.cmake"
   "/usr/share/cmake-3.28/Modules/FindPkgConfig.cmake"
   "/usr/share/cmake-3.28/Modules/FindProtobuf.cmake"
+  "/usr/share/cmake-3.28/Modules/FindSQLite3.cmake"
   "/usr/share/cmake-3.28/Modules/FindThreads.cmake"
   "/usr/share/cmake-3.28/Modules/FindZLIB.cmake"
   "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake"
@@ -69,4 +70,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/kv_server.dir/DependInfo.cmake"
   "CMakeFiles/kv_client.dir/DependInfo.cmake"
+  "CMakeFiles/kv_manager.dir/DependInfo.cmake"
   )

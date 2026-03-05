@@ -58,3 +58,30 @@ message DeleteRequest {
 message DeleteResponse {
   bool found = 1;
 }
+
+service Manager {
+  rpc RegisterServer(RegisterRequest) returns (RegisterResponse);
+  rpc GetClusterInfo(ClusterInfoRequest) returns (ClusterInfoResponse);
+}
+
+message RegisterRequest {
+  int32 server_id = 1;
+  string address = 2;
+}
+
+message RegisterResponse {
+  int32 num_partitions = 1;   // total N
+  int32 partition_id = 2;     // this server's assigned partition (== server_id)
+}
+
+message ClusterInfoRequest {}
+
+message ClusterInfoResponse {
+  int32 num_partitions = 1;
+  repeated ServerInfo servers = 2;
+}
+
+message ServerInfo {
+  int32 server_id = 1;
+  string address = 2;
+}

@@ -23,6 +23,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
+#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
@@ -45,6 +46,12 @@ struct TableStruct_kvstore_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_kvstore_2eproto;
 namespace kvstore {
+class ClusterInfoRequest;
+struct ClusterInfoRequestDefaultTypeInternal;
+extern ClusterInfoRequestDefaultTypeInternal _ClusterInfoRequest_default_instance_;
+class ClusterInfoResponse;
+struct ClusterInfoResponseDefaultTypeInternal;
+extern ClusterInfoResponseDefaultTypeInternal _ClusterInfoResponse_default_instance_;
 class DeleteRequest;
 struct DeleteRequestDefaultTypeInternal;
 extern DeleteRequestDefaultTypeInternal _DeleteRequest_default_instance_;
@@ -66,12 +73,21 @@ extern PutRequestDefaultTypeInternal _PutRequest_default_instance_;
 class PutResponse;
 struct PutResponseDefaultTypeInternal;
 extern PutResponseDefaultTypeInternal _PutResponse_default_instance_;
+class RegisterRequest;
+struct RegisterRequestDefaultTypeInternal;
+extern RegisterRequestDefaultTypeInternal _RegisterRequest_default_instance_;
+class RegisterResponse;
+struct RegisterResponseDefaultTypeInternal;
+extern RegisterResponseDefaultTypeInternal _RegisterResponse_default_instance_;
 class ScanRequest;
 struct ScanRequestDefaultTypeInternal;
 extern ScanRequestDefaultTypeInternal _ScanRequest_default_instance_;
 class ScanResponse;
 struct ScanResponseDefaultTypeInternal;
 extern ScanResponseDefaultTypeInternal _ScanResponse_default_instance_;
+class ServerInfo;
+struct ServerInfoDefaultTypeInternal;
+extern ServerInfoDefaultTypeInternal _ServerInfo_default_instance_;
 class SwapRequest;
 struct SwapRequestDefaultTypeInternal;
 extern SwapRequestDefaultTypeInternal _SwapRequest_default_instance_;
@@ -80,6 +96,8 @@ struct SwapResponseDefaultTypeInternal;
 extern SwapResponseDefaultTypeInternal _SwapResponse_default_instance_;
 }  // namespace kvstore
 PROTOBUF_NAMESPACE_OPEN
+template<> ::kvstore::ClusterInfoRequest* Arena::CreateMaybeMessage<::kvstore::ClusterInfoRequest>(Arena*);
+template<> ::kvstore::ClusterInfoResponse* Arena::CreateMaybeMessage<::kvstore::ClusterInfoResponse>(Arena*);
 template<> ::kvstore::DeleteRequest* Arena::CreateMaybeMessage<::kvstore::DeleteRequest>(Arena*);
 template<> ::kvstore::DeleteResponse* Arena::CreateMaybeMessage<::kvstore::DeleteResponse>(Arena*);
 template<> ::kvstore::GetRequest* Arena::CreateMaybeMessage<::kvstore::GetRequest>(Arena*);
@@ -87,8 +105,11 @@ template<> ::kvstore::GetResponse* Arena::CreateMaybeMessage<::kvstore::GetRespo
 template<> ::kvstore::KvEntry* Arena::CreateMaybeMessage<::kvstore::KvEntry>(Arena*);
 template<> ::kvstore::PutRequest* Arena::CreateMaybeMessage<::kvstore::PutRequest>(Arena*);
 template<> ::kvstore::PutResponse* Arena::CreateMaybeMessage<::kvstore::PutResponse>(Arena*);
+template<> ::kvstore::RegisterRequest* Arena::CreateMaybeMessage<::kvstore::RegisterRequest>(Arena*);
+template<> ::kvstore::RegisterResponse* Arena::CreateMaybeMessage<::kvstore::RegisterResponse>(Arena*);
 template<> ::kvstore::ScanRequest* Arena::CreateMaybeMessage<::kvstore::ScanRequest>(Arena*);
 template<> ::kvstore::ScanResponse* Arena::CreateMaybeMessage<::kvstore::ScanResponse>(Arena*);
+template<> ::kvstore::ServerInfo* Arena::CreateMaybeMessage<::kvstore::ServerInfo>(Arena*);
 template<> ::kvstore::SwapRequest* Arena::CreateMaybeMessage<::kvstore::SwapRequest>(Arena*);
 template<> ::kvstore::SwapResponse* Arena::CreateMaybeMessage<::kvstore::SwapResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -1857,6 +1878,779 @@ class DeleteResponse final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_kvstore_2eproto;
 };
+// -------------------------------------------------------------------
+
+class RegisterRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:kvstore.RegisterRequest) */ {
+ public:
+  inline RegisterRequest() : RegisterRequest(nullptr) {}
+  ~RegisterRequest() override;
+  explicit PROTOBUF_CONSTEXPR RegisterRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RegisterRequest(const RegisterRequest& from);
+  RegisterRequest(RegisterRequest&& from) noexcept
+    : RegisterRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline RegisterRequest& operator=(const RegisterRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RegisterRequest& operator=(RegisterRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RegisterRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RegisterRequest* internal_default_instance() {
+    return reinterpret_cast<const RegisterRequest*>(
+               &_RegisterRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(RegisterRequest& a, RegisterRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RegisterRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RegisterRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RegisterRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RegisterRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RegisterRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RegisterRequest& from) {
+    RegisterRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RegisterRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "kvstore.RegisterRequest";
+  }
+  protected:
+  explicit RegisterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAddressFieldNumber = 2,
+    kServerIdFieldNumber = 1,
+  };
+  // string address = 2;
+  void clear_address();
+  const std::string& address() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_address(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_address();
+  PROTOBUF_NODISCARD std::string* release_address();
+  void set_allocated_address(std::string* address);
+  private:
+  const std::string& _internal_address() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_address(const std::string& value);
+  std::string* _internal_mutable_address();
+  public:
+
+  // int32 server_id = 1;
+  void clear_server_id();
+  int32_t server_id() const;
+  void set_server_id(int32_t value);
+  private:
+  int32_t _internal_server_id() const;
+  void _internal_set_server_id(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:kvstore.RegisterRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr address_;
+    int32_t server_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_kvstore_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RegisterResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:kvstore.RegisterResponse) */ {
+ public:
+  inline RegisterResponse() : RegisterResponse(nullptr) {}
+  ~RegisterResponse() override;
+  explicit PROTOBUF_CONSTEXPR RegisterResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RegisterResponse(const RegisterResponse& from);
+  RegisterResponse(RegisterResponse&& from) noexcept
+    : RegisterResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline RegisterResponse& operator=(const RegisterResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RegisterResponse& operator=(RegisterResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RegisterResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RegisterResponse* internal_default_instance() {
+    return reinterpret_cast<const RegisterResponse*>(
+               &_RegisterResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(RegisterResponse& a, RegisterResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RegisterResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RegisterResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RegisterResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RegisterResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RegisterResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RegisterResponse& from) {
+    RegisterResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RegisterResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "kvstore.RegisterResponse";
+  }
+  protected:
+  explicit RegisterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNumPartitionsFieldNumber = 1,
+    kPartitionIdFieldNumber = 2,
+  };
+  // int32 num_partitions = 1;
+  void clear_num_partitions();
+  int32_t num_partitions() const;
+  void set_num_partitions(int32_t value);
+  private:
+  int32_t _internal_num_partitions() const;
+  void _internal_set_num_partitions(int32_t value);
+  public:
+
+  // int32 partition_id = 2;
+  void clear_partition_id();
+  int32_t partition_id() const;
+  void set_partition_id(int32_t value);
+  private:
+  int32_t _internal_partition_id() const;
+  void _internal_set_partition_id(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:kvstore.RegisterResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int32_t num_partitions_;
+    int32_t partition_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_kvstore_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ClusterInfoRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:kvstore.ClusterInfoRequest) */ {
+ public:
+  inline ClusterInfoRequest() : ClusterInfoRequest(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR ClusterInfoRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ClusterInfoRequest(const ClusterInfoRequest& from);
+  ClusterInfoRequest(ClusterInfoRequest&& from) noexcept
+    : ClusterInfoRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ClusterInfoRequest& operator=(const ClusterInfoRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ClusterInfoRequest& operator=(ClusterInfoRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ClusterInfoRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ClusterInfoRequest* internal_default_instance() {
+    return reinterpret_cast<const ClusterInfoRequest*>(
+               &_ClusterInfoRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(ClusterInfoRequest& a, ClusterInfoRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ClusterInfoRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ClusterInfoRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ClusterInfoRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ClusterInfoRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const ClusterInfoRequest& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const ClusterInfoRequest& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "kvstore.ClusterInfoRequest";
+  }
+  protected:
+  explicit ClusterInfoRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:kvstore.ClusterInfoRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
+  friend struct ::TableStruct_kvstore_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ClusterInfoResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:kvstore.ClusterInfoResponse) */ {
+ public:
+  inline ClusterInfoResponse() : ClusterInfoResponse(nullptr) {}
+  ~ClusterInfoResponse() override;
+  explicit PROTOBUF_CONSTEXPR ClusterInfoResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ClusterInfoResponse(const ClusterInfoResponse& from);
+  ClusterInfoResponse(ClusterInfoResponse&& from) noexcept
+    : ClusterInfoResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline ClusterInfoResponse& operator=(const ClusterInfoResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ClusterInfoResponse& operator=(ClusterInfoResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ClusterInfoResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ClusterInfoResponse* internal_default_instance() {
+    return reinterpret_cast<const ClusterInfoResponse*>(
+               &_ClusterInfoResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(ClusterInfoResponse& a, ClusterInfoResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ClusterInfoResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ClusterInfoResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ClusterInfoResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ClusterInfoResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ClusterInfoResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ClusterInfoResponse& from) {
+    ClusterInfoResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ClusterInfoResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "kvstore.ClusterInfoResponse";
+  }
+  protected:
+  explicit ClusterInfoResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kServersFieldNumber = 2,
+    kNumPartitionsFieldNumber = 1,
+  };
+  // repeated .kvstore.ServerInfo servers = 2;
+  int servers_size() const;
+  private:
+  int _internal_servers_size() const;
+  public:
+  void clear_servers();
+  ::kvstore::ServerInfo* mutable_servers(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::kvstore::ServerInfo >*
+      mutable_servers();
+  private:
+  const ::kvstore::ServerInfo& _internal_servers(int index) const;
+  ::kvstore::ServerInfo* _internal_add_servers();
+  public:
+  const ::kvstore::ServerInfo& servers(int index) const;
+  ::kvstore::ServerInfo* add_servers();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::kvstore::ServerInfo >&
+      servers() const;
+
+  // int32 num_partitions = 1;
+  void clear_num_partitions();
+  int32_t num_partitions() const;
+  void set_num_partitions(int32_t value);
+  private:
+  int32_t _internal_num_partitions() const;
+  void _internal_set_num_partitions(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:kvstore.ClusterInfoResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::kvstore::ServerInfo > servers_;
+    int32_t num_partitions_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_kvstore_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ServerInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:kvstore.ServerInfo) */ {
+ public:
+  inline ServerInfo() : ServerInfo(nullptr) {}
+  ~ServerInfo() override;
+  explicit PROTOBUF_CONSTEXPR ServerInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ServerInfo(const ServerInfo& from);
+  ServerInfo(ServerInfo&& from) noexcept
+    : ServerInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline ServerInfo& operator=(const ServerInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ServerInfo& operator=(ServerInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ServerInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ServerInfo* internal_default_instance() {
+    return reinterpret_cast<const ServerInfo*>(
+               &_ServerInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(ServerInfo& a, ServerInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ServerInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ServerInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ServerInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ServerInfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ServerInfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ServerInfo& from) {
+    ServerInfo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ServerInfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "kvstore.ServerInfo";
+  }
+  protected:
+  explicit ServerInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAddressFieldNumber = 2,
+    kServerIdFieldNumber = 1,
+  };
+  // string address = 2;
+  void clear_address();
+  const std::string& address() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_address(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_address();
+  PROTOBUF_NODISCARD std::string* release_address();
+  void set_allocated_address(std::string* address);
+  private:
+  const std::string& _internal_address() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_address(const std::string& value);
+  std::string* _internal_mutable_address();
+  public:
+
+  // int32 server_id = 1;
+  void clear_server_id();
+  int32_t server_id() const;
+  void set_server_id(int32_t value);
+  private:
+  int32_t _internal_server_id() const;
+  void _internal_set_server_id(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:kvstore.ServerInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr address_;
+    int32_t server_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_kvstore_2eproto;
+};
 // ===================================================================
 
 
@@ -2628,9 +3422,279 @@ inline void DeleteResponse::set_found(bool value) {
   // @@protoc_insertion_point(field_set:kvstore.DeleteResponse.found)
 }
 
+// -------------------------------------------------------------------
+
+// RegisterRequest
+
+// int32 server_id = 1;
+inline void RegisterRequest::clear_server_id() {
+  _impl_.server_id_ = 0;
+}
+inline int32_t RegisterRequest::_internal_server_id() const {
+  return _impl_.server_id_;
+}
+inline int32_t RegisterRequest::server_id() const {
+  // @@protoc_insertion_point(field_get:kvstore.RegisterRequest.server_id)
+  return _internal_server_id();
+}
+inline void RegisterRequest::_internal_set_server_id(int32_t value) {
+  
+  _impl_.server_id_ = value;
+}
+inline void RegisterRequest::set_server_id(int32_t value) {
+  _internal_set_server_id(value);
+  // @@protoc_insertion_point(field_set:kvstore.RegisterRequest.server_id)
+}
+
+// string address = 2;
+inline void RegisterRequest::clear_address() {
+  _impl_.address_.ClearToEmpty();
+}
+inline const std::string& RegisterRequest::address() const {
+  // @@protoc_insertion_point(field_get:kvstore.RegisterRequest.address)
+  return _internal_address();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RegisterRequest::set_address(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.address_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:kvstore.RegisterRequest.address)
+}
+inline std::string* RegisterRequest::mutable_address() {
+  std::string* _s = _internal_mutable_address();
+  // @@protoc_insertion_point(field_mutable:kvstore.RegisterRequest.address)
+  return _s;
+}
+inline const std::string& RegisterRequest::_internal_address() const {
+  return _impl_.address_.Get();
+}
+inline void RegisterRequest::_internal_set_address(const std::string& value) {
+  
+  _impl_.address_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RegisterRequest::_internal_mutable_address() {
+  
+  return _impl_.address_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RegisterRequest::release_address() {
+  // @@protoc_insertion_point(field_release:kvstore.RegisterRequest.address)
+  return _impl_.address_.Release();
+}
+inline void RegisterRequest::set_allocated_address(std::string* address) {
+  if (address != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.address_.SetAllocated(address, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.address_.IsDefault()) {
+    _impl_.address_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:kvstore.RegisterRequest.address)
+}
+
+// -------------------------------------------------------------------
+
+// RegisterResponse
+
+// int32 num_partitions = 1;
+inline void RegisterResponse::clear_num_partitions() {
+  _impl_.num_partitions_ = 0;
+}
+inline int32_t RegisterResponse::_internal_num_partitions() const {
+  return _impl_.num_partitions_;
+}
+inline int32_t RegisterResponse::num_partitions() const {
+  // @@protoc_insertion_point(field_get:kvstore.RegisterResponse.num_partitions)
+  return _internal_num_partitions();
+}
+inline void RegisterResponse::_internal_set_num_partitions(int32_t value) {
+  
+  _impl_.num_partitions_ = value;
+}
+inline void RegisterResponse::set_num_partitions(int32_t value) {
+  _internal_set_num_partitions(value);
+  // @@protoc_insertion_point(field_set:kvstore.RegisterResponse.num_partitions)
+}
+
+// int32 partition_id = 2;
+inline void RegisterResponse::clear_partition_id() {
+  _impl_.partition_id_ = 0;
+}
+inline int32_t RegisterResponse::_internal_partition_id() const {
+  return _impl_.partition_id_;
+}
+inline int32_t RegisterResponse::partition_id() const {
+  // @@protoc_insertion_point(field_get:kvstore.RegisterResponse.partition_id)
+  return _internal_partition_id();
+}
+inline void RegisterResponse::_internal_set_partition_id(int32_t value) {
+  
+  _impl_.partition_id_ = value;
+}
+inline void RegisterResponse::set_partition_id(int32_t value) {
+  _internal_set_partition_id(value);
+  // @@protoc_insertion_point(field_set:kvstore.RegisterResponse.partition_id)
+}
+
+// -------------------------------------------------------------------
+
+// ClusterInfoRequest
+
+// -------------------------------------------------------------------
+
+// ClusterInfoResponse
+
+// int32 num_partitions = 1;
+inline void ClusterInfoResponse::clear_num_partitions() {
+  _impl_.num_partitions_ = 0;
+}
+inline int32_t ClusterInfoResponse::_internal_num_partitions() const {
+  return _impl_.num_partitions_;
+}
+inline int32_t ClusterInfoResponse::num_partitions() const {
+  // @@protoc_insertion_point(field_get:kvstore.ClusterInfoResponse.num_partitions)
+  return _internal_num_partitions();
+}
+inline void ClusterInfoResponse::_internal_set_num_partitions(int32_t value) {
+  
+  _impl_.num_partitions_ = value;
+}
+inline void ClusterInfoResponse::set_num_partitions(int32_t value) {
+  _internal_set_num_partitions(value);
+  // @@protoc_insertion_point(field_set:kvstore.ClusterInfoResponse.num_partitions)
+}
+
+// repeated .kvstore.ServerInfo servers = 2;
+inline int ClusterInfoResponse::_internal_servers_size() const {
+  return _impl_.servers_.size();
+}
+inline int ClusterInfoResponse::servers_size() const {
+  return _internal_servers_size();
+}
+inline void ClusterInfoResponse::clear_servers() {
+  _impl_.servers_.Clear();
+}
+inline ::kvstore::ServerInfo* ClusterInfoResponse::mutable_servers(int index) {
+  // @@protoc_insertion_point(field_mutable:kvstore.ClusterInfoResponse.servers)
+  return _impl_.servers_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::kvstore::ServerInfo >*
+ClusterInfoResponse::mutable_servers() {
+  // @@protoc_insertion_point(field_mutable_list:kvstore.ClusterInfoResponse.servers)
+  return &_impl_.servers_;
+}
+inline const ::kvstore::ServerInfo& ClusterInfoResponse::_internal_servers(int index) const {
+  return _impl_.servers_.Get(index);
+}
+inline const ::kvstore::ServerInfo& ClusterInfoResponse::servers(int index) const {
+  // @@protoc_insertion_point(field_get:kvstore.ClusterInfoResponse.servers)
+  return _internal_servers(index);
+}
+inline ::kvstore::ServerInfo* ClusterInfoResponse::_internal_add_servers() {
+  return _impl_.servers_.Add();
+}
+inline ::kvstore::ServerInfo* ClusterInfoResponse::add_servers() {
+  ::kvstore::ServerInfo* _add = _internal_add_servers();
+  // @@protoc_insertion_point(field_add:kvstore.ClusterInfoResponse.servers)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::kvstore::ServerInfo >&
+ClusterInfoResponse::servers() const {
+  // @@protoc_insertion_point(field_list:kvstore.ClusterInfoResponse.servers)
+  return _impl_.servers_;
+}
+
+// -------------------------------------------------------------------
+
+// ServerInfo
+
+// int32 server_id = 1;
+inline void ServerInfo::clear_server_id() {
+  _impl_.server_id_ = 0;
+}
+inline int32_t ServerInfo::_internal_server_id() const {
+  return _impl_.server_id_;
+}
+inline int32_t ServerInfo::server_id() const {
+  // @@protoc_insertion_point(field_get:kvstore.ServerInfo.server_id)
+  return _internal_server_id();
+}
+inline void ServerInfo::_internal_set_server_id(int32_t value) {
+  
+  _impl_.server_id_ = value;
+}
+inline void ServerInfo::set_server_id(int32_t value) {
+  _internal_set_server_id(value);
+  // @@protoc_insertion_point(field_set:kvstore.ServerInfo.server_id)
+}
+
+// string address = 2;
+inline void ServerInfo::clear_address() {
+  _impl_.address_.ClearToEmpty();
+}
+inline const std::string& ServerInfo::address() const {
+  // @@protoc_insertion_point(field_get:kvstore.ServerInfo.address)
+  return _internal_address();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ServerInfo::set_address(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.address_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:kvstore.ServerInfo.address)
+}
+inline std::string* ServerInfo::mutable_address() {
+  std::string* _s = _internal_mutable_address();
+  // @@protoc_insertion_point(field_mutable:kvstore.ServerInfo.address)
+  return _s;
+}
+inline const std::string& ServerInfo::_internal_address() const {
+  return _impl_.address_.Get();
+}
+inline void ServerInfo::_internal_set_address(const std::string& value) {
+  
+  _impl_.address_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ServerInfo::_internal_mutable_address() {
+  
+  return _impl_.address_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ServerInfo::release_address() {
+  // @@protoc_insertion_point(field_release:kvstore.ServerInfo.address)
+  return _impl_.address_.Release();
+}
+inline void ServerInfo::set_allocated_address(std::string* address) {
+  if (address != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.address_.SetAllocated(address, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.address_.IsDefault()) {
+    _impl_.address_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:kvstore.ServerInfo.address)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
