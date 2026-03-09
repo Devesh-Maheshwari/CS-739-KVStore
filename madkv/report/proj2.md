@@ -76,4 +76,4 @@ ChatGPT and Claude Code.
 - **Claude Code:** Used for code style refactoring (private member prefixes, consistent naming across the expanded codebase). Also assisted with minor CMake and gRPC build configuration issues introduced when integrating the cluster manager component.
 
 **Which parts of the project?**
-Non-core areas only — test case validation, code style cleanup, build configuration, and minor debugging. All system design decisions (partitioning strategy, cluster manager architecture, WAL integration, hash-based routing), core implementation, and report writing were done entirely by us.
+Non-core areas only — test case validation, code style cleanup, build configuration, and minor debugging. All system design decisions (partitioning strategy, cluster manager architecture, WAL integration, hash-based routing), core implementation, and report writing were done entirely by me.
