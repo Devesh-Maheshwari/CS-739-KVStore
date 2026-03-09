@@ -41,7 +41,8 @@ private:
     void initDB(const string& db_path) {
         sqlite3_open(db_path.c_str(), &db_);
         sqlite3_exec(db_, "PRAGMA journal_mode=WAL;", nullptr, nullptr, nullptr);
-        sqlite3_exec(db_, "PRAGMA synchronous=NORMAL;", nullptr, nullptr, nullptr);
+        // sqlite3_exec(db_, "PRAGMA synchronous=NORMAL;", nullptr, nullptr, nullptr);
+        sqlite3_exec(db_, "PRAGMA synchronous=OFF;", nullptr, nullptr, nullptr);
         sqlite3_exec(db_, "PRAGMA cache_size=10000;", nullptr, nullptr, nullptr);
         sqlite3_exec(db_,
             "CREATE TABLE IF NOT EXISTS wal ("
