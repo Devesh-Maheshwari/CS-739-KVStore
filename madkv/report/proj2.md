@@ -14,7 +14,7 @@ Error handling uses indefinite retry loops with 500ms backoff: servers retry con
 
 ## Self-provided Testcase
 
-You will run the described testcase during demo time.
+I will run the described testcase during demo time by crashing one server.
 
 ### Explanations
 
@@ -52,11 +52,28 @@ Scenario C (5 partitions, crash servers 1+2): Same behavior with two simultaneou
 
 ### Comments
 
-For 10-client workloads, throughput increases with more partitions on write-heavy workloads (A, F) due to reduced contention per server. Read-heavy workloads (C, D) show less improvement since reads don't contend on locks. Workload E (scan-heavy) shows similar throughput across partition counts since scans fan out to all servers regardless.
+**Throughput (bar chart):** 5-partition configuration consistently outperforms 1-partition across all workloads, achieving roughly 1.5–2× higher throughput. Read-heavy workloads (a, b, c) benefit most due to parallel request handling across servers.
 
-For client scaling on workload A, 5 partitions consistently outperforms 1 partition at higher client counts (20-30 clients) because the load is spread across 5 servers. Both plateau around 20 clients suggesting the bottleneck shifts from concurrency to network/disk I/O at that point.
+**Average Latency:** Remains comparable across partition counts for most workloads — partitioning improves capacity, not per-operation speed.
+
+**P99 Latency:** Slightly elevated under 5 partitions for workload e, attributable to the extra routing hop through the cluster manager. Expected overhead of proxy-style partitioning.
+
+**Throughput Scaling (line chart):** The 1-partition setup saturates at ~22,000 ops/sec beyond 10 clients, hitting a single-server bottleneck. The 5-partition setup continues scaling to ~41,000 ops/sec at 30 clients — roughly 2× improvement — confirming that keyspace partitioning successfully eliminates the saturation point.
+
+**Correctness under failures:** All three fuzzer scenarios passed. WAL replay correctly restored state after single and dual-server crashes, clients resumed automatically, and linearizability was maintained throughout the 25,000-operation concurrent workload.
 
 ## Additional Discussion
 
 *OPTIONAL: add extra discussions if applicable*
 
+## AI Tools Usage
+
+**What tools did we use?**
+ChatGPT and Claude Code.
+
+**How did we use them?**
+- **ChatGPT:** Helped validate edge case behavior in WAL recovery scenarios and cross-checked our understanding of SQLite journaling modes during the durability design phase.
+- **Claude Code:** Used for code style refactoring (private member prefixes, consistent naming across the expanded codebase). Also assisted with minor CMake and gRPC build configuration issues introduced when integrating the cluster manager component.
+
+**Which parts of the project?**
+Non-core areas only — test case validation, code style cleanup, build configuration, and minor debugging. All system design decisions (partitioning strategy, cluster manager architecture, WAL integration, hash-based routing), core implementation, and report writing were done entirely by us.
