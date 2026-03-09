@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# ---- CONFIGURE THESE ----
+SERVER_BIN="./build/server"        # path to your server binary
+SERVER1_PORT=50051
+SERVER1_WAL="server1.db"           # path to server 1's SQLite WAL file
+CLIENT_BIN="./build/client"        # path to your client binary or grpc test
+CLUSTER_MANAGER="localhost:60000"  # your cluster manager address
+
+echo "=============================="
+echo " STEP 1: Start cluster (make sure cluster manager + all servers are running)"
+echo "=============================="
+echo "Assuming servers already started. Press ENTER when ready..."
+
+just p2::manager
+
+just p2::server 0 127.0.0.1:3666 3777 ./backer.s0
+just p2::server 1 127.0.0.1:3666 3778 ./backer.s1
+just p2::server 2 127.0.0.1:3666 3779 ./backer.s2
+
+just p2::client
+
+read
+
+echo ""
+echo "=============================="
+echo " STEP 2: Do a few PUT operations"
+echo "=============================="
+$CLIENT_BIN put key1 value1
+$CLIENT_BIN put key2 value2
+$CLIENT_BIN put key3 value3
+echo "PUT done. Verifying..."
+$CLIENT_BIN get key1
+$CLIENT_BIN get key2
+$CLIENT_BIN get key3
+
+echo ""
+echo "=============================="
+echo " STEP 3: Find and KILL server 1"
+echo "=============================="
+SERVER1_PID=$(lsof -ti :$SERVER1_PORT)
+echo "Server 1 PID: $SERVER1_PID"
+kill -9 $SERVER1_PID
+echo "Server 1 KILLED."
+sleep 1
+
+echo ""
+echo "=============================="
+echo " STEP 4: Try a GET (may fail or hang — expected)"
+echo "=============================="
+$CLIENT_BIN get key1 || echo "Request failed as expected — server is down"
+
+echo ""
+echo "=============================="
+echo " STEP 5: Restart server 1"
+echo "=============================="
+$SERVER_BIN --port=$SERVER1_PORT --db=$SERVER1_WAL &
+echo "Server 1 restarted. Waiting for WAL replay..."
+sleep 3
+
+echo ""
+echo "=============================="
+echo " STEP 6: Verify data is intact after WAL recovery"
+echo "=============================="
+$CLIENT_BIN get key1
+$CLIENT_BIN get key2
+$CLIENT_BIN get key3
+
+echo ""
+echo "=============================="
+echo " RESULT: If values match — WAL recovery works correctly."
+echo "=============================="
