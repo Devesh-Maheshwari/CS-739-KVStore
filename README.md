@@ -1,4 +1,6 @@
-# CS 739 MadKV Project 1
+# CS 739 MadKV Project 1 & 2 
+
+**Project** is at p2 branch
 
 **Group members**: Devesh Maheshwari `dmaheshwar22@wisc.edu`, Cole Bollig `cabollig@wisc.edu`
 
